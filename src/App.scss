@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,900');
+
+$red: rgba(144,40,20,0.9);
+$black: #181a20;
+$lighterred: #C51F00;
+$gray: #EBEBEB;
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Raleway', sans-serif;
+}
+
+.logo{
+  width: 60%;
+  display: block;
+  margin: 0 auto 50px auto;
+}
+
+.layout{
+  height: 100vh;
+  position: fixed;
+  top: 0;
+}
+
+.content{
+  @extend .layout;
+  width: calc(100vw - 300px);
+  right: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  justify-content: center;
+  padding-top: 30px;
+  overflow-y: auto;
+}
+
+.menu {
+  @extend .layout;
+  color: white;
+  left: 0;
+  width: 240px;
+  background-color: $black;
+  padding: 30px;
+  padding-top: calc(30px + 1%);
+}
+
+.navigation{
+  height: 100%;
+  list-style-type: none;
+}
+
+.breadcrumbs{
+  color: $red;
+  font-weight: 900;
+  font-size: 12px;
+}
+
+.arrow:before{
+  padding: 0 10px;
+  content: '\2192';
+  color: lighten($black,15%);
+}
+
+.breadcrumbs_all, .breadcrumbs_item{
+  cursor: pointer;
+  &:hover{
+    color: $lighterred;
+  }
+}
+
+.list_item{
+  margin: 25px 0;
+  font-size: 16px;
+  font-weight: 300;
+  cursor: pointer;
+  &:hover{
+    font-weight: 900;
+  }
+}
+
+.course{
+  background-color: $gray;
+  height: 25%;
+  width: 30%;
+  margin: 1%;
+  box-shadow: 0 8px 12px -4px rgba(0,0,0,0.15);
+  transition: all 0.5s;
+  &:hover{
+    box-shadow: 0 10px 12px -4px rgba(0,0,0,0.30);
+  }
+}
+
+.active_category {
+  font-weight: 900;
+  &:before{
+    content: '\203A';
+    padding-right: 10px;
+  }
+}
+
+.vertical_name{
+  display: inline-block;
+  background-color: rgba(144, 40, 20, 0.9);
+  color: white;
+  float: right;
+  padding: 3px 10px;
+  margin-top: 15px;
+}
+
+.course_info{
+  padding: 20px;
+  margin-top: 30px;
+}
+
+
+
+
