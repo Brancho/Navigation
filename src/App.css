@@ -34,7 +34,7 @@ body {
   width: 22vw;
   background-color: #181a20;
   padding-top: calc(30px + 1%);
-  transition: width 500ms; }
+  overflow: hidden; }
 
 .navigation {
   height: 100%;
@@ -58,12 +58,11 @@ body {
     color: #C51F00; }
 
 .list_item {
-  margin: 25px 0;
+  margin: 25px 0 0 2vw;
   font-size: 1em;
   font-weight: 300;
   cursor: pointer;
-  min-width: 200px;
-  margin-left: 2vw; }
+  min-width: 200px; }
   .list_item:hover {
     font-weight: 900; }
 
@@ -73,7 +72,7 @@ body {
   width: 30%;
   margin: 1%;
   box-shadow: 0 8px 12px -4px rgba(0, 0, 0, 0.15);
-  transition: all 0.5s; }
+  transition: box-shadow 0.5s; }
   .course:hover {
     box-shadow: 0 10px 12px -4px rgba(0, 0, 0, 0.3); }
 
@@ -100,7 +99,16 @@ body {
     font-size: 1.5em; }
 
 .mobile_header {
-  display: none; }
+  display: none;
+  position: fixed;
+  justify-content: space-between;
+  width: 88vw;
+  background-color: #181a20;
+  padding: 0 6vw; }
+  .mobile_header .logo {
+    margin: 0;
+    width: 130px;
+    display: inline-block; }
 
 .burger_menu {
   float: right;
@@ -128,38 +136,28 @@ body {
   .arrow:before {
     padding: 0 5px; } }
 
-@media (max-width: 700px) {
+@media (max-width: 770px) {
   .mobile_header {
-    display: flex;
-    position: fixed;
-    justify-content: space-between;
-    width: 88vw;
-    background-color: #181a20;
-    padding: 0 6vw; }
-    .mobile_header .logo {
-      margin: 0;
-      width: 130px;
-      display: inline-block; }
+    display: flex; }
   .breadcrumbs, .list_item {
     margin-left: 8vw; }
   .content {
     width: 100%;
     top: 58px;
     padding: 10px 0 15vh;
-    overflow-y: scroll;
     height: calc(100vh - 23vh); }
   .menu {
     width: 0vw;
     top: 45px;
     z-index: 1;
     visibility: hidden;
-    overflow: hidden; }
+    transition: width 500ms; }
     .menu .logo {
       display: none; }
   .menu.slideIn {
     width: 100vw; }
   .menu.slideOut {
-    width: 0vw; }
+    width: 0; }
   .menu.show {
     visibility: visible; }
   .course {
@@ -176,6 +174,4 @@ body {
   .course_info h2 {
     font-size: 1.5em; }
   .breadcrumbs {
-    font-size: 0.7em; }
-  .course_info {
-    margin-top: 20px; } }
+    font-size: 0.7em; } }

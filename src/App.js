@@ -9,7 +9,6 @@ import categoriesInitial from './data/categories.json';
 import coursesInitial from './data/courses.json';
 import verticalsInitial from './data/verticals.json';
 
-
 const verticals = JSON.parse(JSON.stringify(verticalsInitial));
 const courses = JSON.parse(JSON.stringify(coursesInitial));
 const categories = JSON.parse(JSON.stringify(categoriesInitial));

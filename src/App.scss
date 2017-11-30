@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway:300,400,900');
 
-$red: rgba(144,40,20,0.9);
+$red: rgba(144, 40, 20, 0.9);
 $black: #181a20;
 $lighterred: #C51F00;
 $gray: #EBEBEB;
@@ -11,8 +11,7 @@ $font-s: 1em;
 $font-l: 1.5em;
 $font-xl: 2em;
 
-
-body{
+body {
   font-size: 16px;
 }
 
@@ -22,13 +21,13 @@ body{
   font-family: 'Raleway', sans-serif;
 }
 
-.logo{
+.logo {
   width: 60%;
   display: block;
   margin: 0 auto 50px auto;
 }
 
-.content{
+.content {
   position: fixed;
   top: 0;
   height: calc(100vh - 50px);
@@ -51,15 +50,15 @@ body{
   width: 22vw;
   background-color: $black;
   padding-top: calc(30px + 1%);
-  transition: width 500ms;
+  overflow: hidden;
 }
 
-.navigation{
+.navigation {
   height: 100%;
   list-style-type: none;
 }
 
-.breadcrumbs{
+.breadcrumbs {
   color: $red;
   font-weight: 900;
   font-size: $font-xs;
@@ -67,91 +66,100 @@ body{
   margin-left: 2vw;
 }
 
-.arrow:before{
+.arrow:before {
   padding: 0 10px;
   content: '\2192';
-  color: lighten($black,15%);
+  color: lighten($black, 15%);
 }
 
-.breadcrumbs_all, .breadcrumbs_item{
+.breadcrumbs_all, .breadcrumbs_item {
   cursor: pointer;
-  &:hover{
+  &:hover {
     color: $lighterred;
   }
 }
 
-.list_item{
-  margin: 25px 0;
+.list_item {
+  margin: 25px 0 0 2vw;
   font-size: $font-s;
   font-weight: 300;
   cursor: pointer;
   min-width: 200px;
-  margin-left: 2vw;
-  &:hover{
+  &:hover {
     font-weight: 900;
   }
 }
 
-.course{
+.course {
   background-color: $gray;
   height: 25%;
   width: 30%;
   margin: 1%;
-  box-shadow: 0 8px 12px -4px rgba(0,0,0,0.15);
-  transition: all 0.5s;
-  &:hover{
-    box-shadow: 0 10px 12px -4px rgba(0,0,0,0.30);
+  box-shadow: 0 8px 12px -4px rgba(0, 0, 0, 0.15);
+  transition: box-shadow 0.5s;
+  &:hover {
+    box-shadow: 0 10px 12px -4px rgba(0, 0, 0, 0.30);
   }
 }
 
 .active_category {
   font-weight: 900;
-  &:before{
+  &:before {
     content: '\203A';
     padding-right: 10px;
   }
 }
 
-.vertical_name{
+.vertical_name {
   display: inline-block;
-  background-color: rgba(144, 40, 20, 0.9);
+  background-color: $red;
   color: white;
   float: right;
   padding: 3px 10px;
   margin-top: 15px;
 }
 
-.course_info{
+.course_info {
   padding: 20px;
   margin-top: 30px;
-  p{
+  p {
     font-size: $font-s;
   }
-  h2{
+  h2 {
     font-size: $font-l;
   }
 }
 
-.mobile_header{
+.mobile_header {
   display: none;
+  position: fixed;
+  justify-content: space-between;
+  width: 88vw;
+  background-color: $black;
+  padding: 0 6vw;
+  .logo {
+    margin: 0;
+    width: 130px;
+    display: inline-block;
+  }
 }
 
-.burger_menu{
+.burger_menu {
   float: right;
   width: 30px;
-  path{
+  path {
     fill: white;
   }
 }
 
-@media (min-width: 1600px){
-  .list_item, .vertical_name, .course_info p{
-      font-size: $font-l;
-    }
-  .course_info h2{
-      font-size: $font-xl;
-    }
-  .breadcrumbs{
+@media (min-width: 1600px) {
+  .list_item, .vertical_name, .course_info p {
+    font-size: $font-l;
+  }
+  .course_info h2 {
+    font-size: $font-xl;
+  }
+  .breadcrumbs {
     font-size: $font-s;
   }
   .course_info {
@@ -160,87 +168,73 @@ body{
 }
 
 @media (max-width: 1150px) {
-  .list_item, .vertical_name, .course_info p{
+  .list_item, .vertical_name, .course_info p {
     font-size: $font-xs;
   }
-  .course_info h2{
+  .course_info h2 {
     font-size: $font-s;
   }
-  .breadcrumbs{
+  .breadcrumbs {
     font-size: $font-xxs;
   }
-  .arrow:before{
+  .arrow:before {
     padding: 0 5px;
   }
 }
 
-@media (max-width: 700px) {
-  .mobile_header{
+@media (max-width: 770px) {
+  .mobile_header {
     display: flex;
-    position: fixed;
-    justify-content: space-between;
-    width: 88vw;
-    background-color: $black;
-    padding: 0 6vw;
-    .logo{
-      margin: 0;
-      width: 130px;
-      display: inline-block;
-    }
   }
-.breadcrumbs, .list_item{
-  margin-left: 8vw;
-}
+  .breadcrumbs, .list_item {
+    margin-left: 8vw;
+  }
 
-  .content{
+  .content {
     width: 100%;
     top: 58px;
     padding: 10px 0 15vh;
-    overflow-y: scroll;
     height: calc(100vh - 23vh);
   }
-  .menu{
+  .menu {
     width: 0vw;
     top: 45px;
     z-index: 1;
     visibility: hidden;
-    overflow: hidden;
-    .logo{
+    transition: width 500ms;
+    .logo {
       display: none;
     }
   }
-  .menu.slideIn{
+  .menu.slideIn {
     width: 100vw;
   }
-  .menu.slideOut{
-    width: 0vw;
+  .menu.slideOut {
+    width: 0;
   }
-  .menu.show{
+  .menu.show {
     visibility: visible;
   }
-  .course{
+  .course {
     width: 45%;
     height: auto;
   }
 }
 
 @media (max-width: 540px) {
-  .course{
+  .course {
     width: 90%;
     margin: 2%;
     height: 35%;
   }
-  .list_item, .vertical_name, .course_info p{
+  .list_item, .vertical_name, .course_info p {
     font-size: $font-s;
   }
-  .course_info h2{
+  .course_info h2 {
     font-size: $font-l;
   }
-  .breadcrumbs{
+  .breadcrumbs {
     font-size: $font-xs;
-  }
-  .course_info {
-    margin-top: 20px;
   }
 }
 
