@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import logo from '../logo.svg';
+import burger from '../burger.svg';
 import {connect} from 'react-redux';
 import Breadcrumbs from './Breadcrumbs';
 import { setActiveVertical, setActiveCategory } from '../actions'
@@ -7,10 +8,35 @@ import { setActiveVertical, setActiveCategory } from '../actions'
 import '../App.css';
 
 class Navigation extends Component {
+  constructor(props){
+    super(props);
+
+    this.state = {
+      menuOpen: false,
+      menuClasses: ''
+    }
+  }
+
+  animateMenu = () => {
+    if(!this.state.menuOpen){
+      this.setState({ menuClasses: 'show slideIn' });
+    } else {
+      this.setState({ menuClasses: 'show slideOut' });
+      setTimeout(() => {
+        this.setState({ menuClasses: '' });
+      }, 500);
+    }
+    this.setState({ menuOpen: !this.state.menuOpen });
+  };
+
   render() {
-    console.log(this.props);
     return (
-      <div className="menu">
+      <div>
+        <div className="mobile_header">
+          <img src={logo} className="logo" alt="logo"/>
+          <img src={burger} className="burger_menu" onClick={() => this.animateMenu()}/>
+        </div>
+      <div className={`menu ${this.state.menuClasses}`}>
         <img src={logo} className="logo" alt="logo"/>
         <Breadcrumbs />
 
@@ -32,6 +58,7 @@ class Navigation extends Component {
         </ul>
         }
 
+      </div>
       </div>
     )
   }
